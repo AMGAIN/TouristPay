@@ -1,0 +1,33 @@
+import mongoose from "mongoose";
+
+const currencySchema = new mongoose.Schema({
+  code: {
+    type: String,
+    required: true,
+    unique: true,     // USD, NPR
+    uppercase: true,
+    trim: true
+  },
+  name: { 
+    type: String,
+    required: true 
+    },
+  symbol: { 
+    type: String, 
+    default: ""
+    },
+  decimals: { 
+    type: Number, 
+    default: 2 
+},
+  isActive: { 
+    type: Boolean, 
+    default: true 
+},
+  createdAt: { 
+    type: Date, 
+    default: Date.now 
+}
+});
+
+export const Currency = mongoose.model("Currency", currencySchema);
