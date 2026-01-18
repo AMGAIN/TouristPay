@@ -32,4 +32,4 @@ exchangeRateLogSchema.index(
     { baseCurrency: 1, targetCurrency: 1, fetchedAt: -1 }
 );
 
-export const ExchangeRateLog = mongoose.model("ExchangeRateLog", exchangeRateLogSchema);
+module.exports.ExchangeRateLog = mongoose.model("ExchangeRateLog", exchangeRateLogSchema);

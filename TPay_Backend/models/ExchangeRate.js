@@ -1,5 +1,4 @@
-import mongoose from "mongoose";
-
+const mongoose = require("mongoose");
 const exchangeRateSchema = new mongoose.Schema({
   baseCurrency: { 
     type: String, 
@@ -43,4 +42,4 @@ exchangeRateSchema.index(
     { expireAfterSeconds: 0 }
 );
 
-export const ExchangeRate = mongoose.model("ExchangeRate", exchangeRateSchema);
+module.exports.ExchangeRate = mongoose.model("ExchangeRate", exchangeRateSchema);
