@@ -95,7 +95,7 @@ export default function Dashboard() {
           <NavButton icon={Clock} label="History" />
         </Link>
         <div className="relative -top-4">
-          <Link to={"paymentprocess"}>
+          <Link to={"pprocess"}>
             <button className="w-14 h-14 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow">
               <QrCode size={20} className="text-white" />
             </button>
