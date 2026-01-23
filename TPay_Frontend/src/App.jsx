@@ -6,6 +6,8 @@ import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register";
 import TransactionHistory from "./pages/TransactionHistory";
 import PaymentProcess from "./pages/PaymentProcess";
+import PaymentProcess2 from "./pages/PaymentProcess2";
+import TPin from "./pages/TPin";
 
 function App() {
   return (
@@ -16,7 +18,9 @@ function App() {
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/register" element={<RegisterPage/>}/>
         <Route path="/tHistory" element={<TransactionHistory/>}/>
-        <Route path="paymentprocess" element={<PaymentProcess/>} />
+        <Route path="/pprocess" element={<PaymentProcess/>} />
+        <Route path="/pprocess/pprocess2" element={<PaymentProcess2/>} />
+        <Route path="/pprocess/pprocess2/tpin" element={<TPin/>} />
       </Routes>
     </MobileLayout>
   );

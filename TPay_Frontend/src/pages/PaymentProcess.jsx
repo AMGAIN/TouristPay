@@ -60,7 +60,7 @@ const PaymentProcess = () => {
         // Simulate payment processing
         setTimeout(() => {
             setIsProcessing(false);
-            alert(`Payment of NPR ${amount} to Shushila Enterprises processed successfully!`);
+            // alert(`Payment of NPR ${amount} to Shushila Enterprises processed successfully!`);
         }, 1500);
     };
 
@@ -133,17 +133,7 @@ const PaymentProcess = () => {
                                         handleNumberClick(item.toString());
                                     }
                                 }}
-                                className={`
-                  h-16 rounded-2xl flex items-center justify-center text-2xl font-medium
-                  ${item === 'DEL'
-                                        ? 'bg-red-50 text-red-600 hover:bg-red-100 active:bg-red-200'
-                                        : item === '.'
-                                            ? 'bg-gray-100 text-gray-700 hover:bg-gray-200 active:bg-gray-300'
-                                            : 'bg-blue-50 text-blue-700 hover:bg-blue-100 active:bg-blue-200'
-                                    }
-                  transition-colors duration-200
-                `}
-                            >
+                                className={`  h-16 rounded-2xl flex items-center justify-center text-2xl font-medium  ${item === 'DEL'? 'bg-red-50 text-red-600 hover:bg-red-100 active:bg-red-200': item === '.'? 'bg-gray-100 text-gray-700 hover:bg-gray-200 active:bg-gray-300': 'bg-blue-50 text-blue-700 hover:bg-blue-100 active:bg-blue-200'}  transition-colors duration-200`}>
                                 {item === 'DEL' ? (
                                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l9-9 9 9-9 9-9-9z" />
@@ -156,6 +146,7 @@ const PaymentProcess = () => {
 
                 {/* Continue Button */}
                 <div className="px-6 pb-6">
+                    <Link to="pprocess2">
                     <button
                         onClick={handleContinuePayment}
                         disabled={isProcessing}
@@ -181,6 +172,7 @@ const PaymentProcess = () => {
                             'Continue Payment'
                         )}
                     </button>
+                    </Link>
                 </div>
 
                 {/* Bottom Navigation */}
