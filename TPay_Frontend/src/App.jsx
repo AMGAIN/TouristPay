@@ -8,6 +8,8 @@ import TransactionHistory from "./pages/TransactionHistory";
 import PaymentProcess from "./pages/PaymentProcess";
 import PaymentProcess2 from "./pages/PaymentProcess2";
 import TPin from "./pages/TPin";
+import KYCForm from "./pages/KycForm";
+import PaymentSuccess from "./pages/PaymentSuccess";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path="/pprocess" element={<PaymentProcess/>} />
         <Route path="/pprocess/pprocess2" element={<PaymentProcess2/>} />
         <Route path="/pprocess/pprocess2/tpin" element={<TPin/>} />
+        <Route path="/kyc" element={<KYCForm/>}/>
+        <Route path="/payment-success" element={<PaymentSuccess />} />
       </Routes>
     </MobileLayout>
   );

@@ -1,6 +1,8 @@
 // src/components/SendMoney.jsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import BottomNav from "../components/BottomNav";
+
 
 const SendMoney = () => {
     const [amount, setAmount] = useState('1000');
@@ -141,28 +143,9 @@ const SendMoney = () => {
             </Link>
 
 
-            {/* Bottom Navigation */}
-            <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200">
-                <div className="flex justify-around items-center py-3">
-                    <NavItem icon={<HomeIcon />} label="Home" active={true} />
-                    <NavItem icon={<HistoryIcon />} label="History" />
-                    <NavItem icon={<OffersIcon />} label="Offers" />
-                    <NavItem icon={<ProfileIcon />} label="Profile" />
-                </div>
-            </div>
+            <BottomNav />
         </div>
     );
 };
-
-const NavItem = ({ icon, label, active = false }) => (
-    <div className="flex flex-col items-center cursor-pointer">
-        <div className={`${active ? 'text-blue-600' : 'text-gray-500'}`}>
-            {icon}
-        </div>
-        <span className={`text-xs mt-1 ${active ? 'text-blue-600 font-medium' : 'text-gray-500'}`}>
-            {label}
-        </span>
-    </div>
-);
 
 export default SendMoney;
