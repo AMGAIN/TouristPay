@@ -33,7 +33,7 @@ export default function Dashboard() {
             </Link>
             <div>
               <h1 className="text-2xl font-bold text-gray-900">
-                Hi, Milan 👋
+                Hi! Rajan
               </h1>
               <p className="text-sm text-gray-500">Welcome back</p>
             </div>
@@ -79,18 +79,18 @@ export default function Dashboard() {
 
         {/* Quick Payments */}
         <section className="px-5 mt-6">
-          <SectionHeader title="Quick Payments" />
+          <SectionHeader title="QUICK PAYMENTS" />
           <div className="grid grid-cols-4 gap-3">
-            <ActionButton icon={MobileIcon} label="Mobile Top-up" colorClass="bg-indigo-50" />
-            <ActionButton icon={BankIcon} label="Bank Transfer" colorClass="bg-blue-50" />
-            <ActionButton icon={CardIcon} label="Card Payment" colorClass="bg-purple-50" />
-            <ActionButton icon={WalletIcon} label="Wallet Top-up" colorClass="bg-pink-50" />
+            <ActionButton icon={MobileIcon} label="Mobile Top-up" colorClass="bg-indigo-50" mainColor="text-blue-300" />
+            <ActionButton icon={BankIcon} label="Bank Transfer" colorClass="bg-blue-50" mainColor="text-blue-300" />
+            <ActionButton icon={CardIcon} label="Card Payment" colorClass="bg-purple-50" mainColor="text-blue-300" />
+            <ActionButton icon={WalletIcon} label="Wallet Top-up" colorClass="bg-pink-50" mainColor="text-blue-300" />
           </div>
         </section>
 
         {/* Offers */}
         <section className="px-5 mt-8">
-          <SectionHeader title="Offers & Deals" />
+          <SectionHeader title="OFFERS & DEALS" />
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-orange-500 to-red-500 p-5 text-white">
             <div className="relative z-10">
               <div className="flex items-center gap-2 mb-2">
@@ -108,7 +108,7 @@ export default function Dashboard() {
 
         {/* Quick Actions */}
         <section className="px-5 mt-8">
-          <SectionHeader title="Quick Actions" />
+          <SectionHeader title="QUICK ACTIONS" />
           <div className="grid grid-cols-4 gap-3">
             <QuickAction icon={<QrCode />} label="Scan QR" />
             <QuickAction icon={<Clock />} label="History" />
@@ -119,7 +119,7 @@ export default function Dashboard() {
 
         {/* Transactions */}
         <section className="px-5 mt-8">
-          <SectionHeader title="Recent Transactions" />
+          <SectionHeader title="RECENT TRANSACTIONS" />
           <div className="space-y-3">
             <TransactionItem
               type="sent"
@@ -153,14 +153,14 @@ export default function Dashboard() {
 const SectionHeader = ({ title }) => (
   <div className="flex justify-between mb-3 px-1">
     <h3 className="text-gray-800 font-bold text-lg">{title}</h3>
-    <span className="text-indigo-600 text-sm font-medium">See All</span>
+    <span className="text-indigo-600 text-sm font-medium cursor-pointer">See All</span>
   </div>
 );
 
-const ActionButton = ({ icon, label, colorClass }) => (
+const ActionButton = ({ icon, label, colorClass, mainColor }) => (
   <button className="flex flex-col items-center p-4 rounded-2xl bg-white shadow-sm">
     <div className={`p-3 rounded-full ${colorClass}`}>
-      <img src={icon} className="w-6 h-6" alt={label} />
+      <img src={icon} className={`w-6 h-6 ${mainColor}`} alt={label} />
     </div>
     <span className="text-xs font-semibold mt-2">{label}</span>
   </button>
