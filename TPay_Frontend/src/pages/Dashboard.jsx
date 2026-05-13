@@ -5,13 +5,12 @@ import {
   Clock,
   Gift,
   QrCode,
+  Smartphone,
+  Building2,
+  CreditCard,
+  Wallet,
+  Tag,
 } from "lucide-react";
-
-import BankIcon from "../assets/icons/bank.png";
-import CardIcon from "../assets/icons/card.png";
-import MobileIcon from "../assets/icons/mobile.png";
-import OfferIcon from "../assets/icons/offer.png";
-import WalletIcon from "../assets/icons/wallet.png";
 
 import BottomNav from "../components/BottomNav";
 
@@ -81,10 +80,10 @@ export default function Dashboard() {
         <section className="px-5 mt-6">
           <SectionHeader title="QUICK PAYMENTS" />
           <div className="grid grid-cols-4 gap-3">
-            <ActionButton icon={MobileIcon} label="Mobile Top-up" colorClass="bg-indigo-50" mainColor="text-blue-300" />
-            <ActionButton icon={BankIcon} label="Bank Transfer" colorClass="bg-blue-50" mainColor="text-blue-300" />
-            <ActionButton icon={CardIcon} label="Card Payment" colorClass="bg-purple-50" mainColor="text-blue-300" />
-            <ActionButton icon={WalletIcon} label="Wallet Top-up" colorClass="bg-pink-50" mainColor="text-blue-300" />
+            <ActionButton icon={<Smartphone className="w-6 h-6 text-blue-300" />} label="Mobile Top-up" colorClass="bg-indigo-50" />
+            <ActionButton icon={<Building2 className="w-6 h-6 text-blue-300" />} label="Bank Transfer" colorClass="bg-blue-50" />
+            <ActionButton icon={<CreditCard className="w-6 h-6 text-blue-300" />} label="Card Payment" colorClass="bg-purple-50" />
+            <ActionButton icon={<Wallet className="w-6 h-6 text-blue-300" />} label="Wallet Top-up" colorClass="bg-pink-50" />
           </div>
         </section>
 
@@ -94,7 +93,7 @@ export default function Dashboard() {
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-orange-500 to-red-500 p-5 text-white">
             <div className="relative z-10">
               <div className="flex items-center gap-2 mb-2">
-                <img src={OfferIcon} className="w-5 h-5" alt="offer" />
+                <Tag className="w-5 h-5" />
                 <span className="text-sm font-semibold">SPECIAL DISCOUNT</span>
               </div>
               <h3 className="text-xl font-bold mb-1">50% Off on First Ride</h3>
@@ -157,17 +156,17 @@ const SectionHeader = ({ title }) => (
   </div>
 );
 
-const ActionButton = ({ icon, label, colorClass, mainColor }) => (
-  <button className="flex flex-col items-center p-4 rounded-2xl bg-white shadow-sm">
+const ActionButton = ({ icon, label, colorClass }) => (
+  <button className="flex flex-col border border-zinc-300 items-center p-4 rounded-2xl bg-white shadow-sm translation-transform hover:scale-105">
     <div className={`p-3 rounded-full ${colorClass}`}>
-      <img src={icon} className={`w-6 h-6 ${mainColor}`} alt={label} />
+      {icon}
     </div>
     <span className="text-xs font-semibold mt-2">{label}</span>
   </button>
 );
 
 const QuickAction = ({ icon, label }) => (
-  <button className="flex flex-col items-center p-4 rounded-2xl bg-white shadow-sm">
+  <button className="flex border border-zinc-300 flex-col items-center p-4 rounded-2xl bg-white shadow-sm translation-transform hover:scale-105">
     <div className="p-3 rounded-full bg-gray-50">{icon}</div>
     <span className="text-xs font-semibold mt-2">{label}</span>
   </button>
