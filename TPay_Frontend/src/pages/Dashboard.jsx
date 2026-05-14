@@ -88,22 +88,57 @@ export default function Dashboard() {
         </section>
 
         {/* Offers */}
-        <section className="px-5 mt-8">
-          <SectionHeader title="OFFERS & DEALS" />
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-orange-500 to-red-500 p-5 text-white">
-            <div className="relative z-10">
-              <div className="flex items-center gap-2 mb-2">
-                <Tag className="w-5 h-5" />
-                <span className="text-sm font-semibold">SPECIAL DISCOUNT</span>
-              </div>
-              <h3 className="text-xl font-bold mb-1">50% Off on First Ride</h3>
-              <p className="text-orange-100 text-sm mb-4">Use code: WELCOME50</p>
-              <button className="bg-white text-orange-600 px-4 py-2 rounded-full text-sm font-semibold">
-                Claim Now
-              </button>
-            </div>
-          </div>
-        </section>
+<section className="px-5 mt-8">
+  <SectionHeader title="OFFERS & DEALS" />
+
+  <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-6 shadow-xl border border-slate-700/40">
+    
+    {/* Background Glow */}
+    <div className="absolute -top-10 -right-10 w-32 h-32 bg-orange-500/20 rounded-full blur-3xl"></div>
+    <div className="absolute bottom-0 left-0 w-24 h-24 bg-red-500/10 rounded-full blur-2xl"></div>
+
+    <div className="relative z-10 flex flex-col gap-5">
+      
+      {/* Badge */}
+      <div className="flex items-center gap-2 w-fit px-3 py-1 rounded-full bg-white/10 border border-white/10 backdrop-blur-sm">
+        <Tag className="w-4 h-4 text-orange-300" />
+        <span className="text-xs tracking-wide font-semibold text-orange-200">
+          LIMITED OFFER
+        </span>
+      </div>
+
+      {/* Content */}
+      <div>
+        <h3 className="text-2xl font-bold leading-tight text-white">
+          Get 50% Off on Your First Ride
+        </h3>
+
+        <p className="mt-2 text-sm text-slate-300 leading-relaxed">
+          Start your journey with exclusive savings. Apply the promo code below during checkout.
+        </p>
+      </div>
+
+      {/* Footer */}
+      <div className="flex items-center justify-between gap-4">
+        
+        {/* Promo Code */}
+        <div className="px-4 py-2 rounded-xl bg-white/10 border border-white/10">
+          <p className="text-[11px] uppercase tracking-wider text-slate-400">
+            Promo Code
+          </p>
+          <p className="text-sm font-bold text-orange-300">
+            WELCOME50
+          </p>
+        </div>
+
+        {/* Button */}
+        <button className="px-5 py-2.5 rounded-xl bg-white text-slate-900 text-sm font-semibold hover:scale-105 transition-transform duration-200 shadow-md">
+          Claim Offer
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
 
         {/* Quick Actions */}
         <section className="px-5 mt-8">
