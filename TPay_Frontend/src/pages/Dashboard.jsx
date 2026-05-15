@@ -207,28 +207,59 @@ const QuickAction = ({ icon, label }) => (
   </button>
 );
 
+import { ArrowUpRight, ArrowDownLeft } from "lucide-react";
+
 const TransactionItem = ({ type, title, subtitle, amount, time }) => {
-  const colors = {
-    sent: "bg-red-100 text-red-600",
-    received: "bg-green-100 text-green-600",
-  };
+  const isReceived = type === "received";
 
   return (
-    <div className="flex items-center justify-between p-4 bg-white rounded-2xl shadow-sm">
-      <div className="flex items-center gap-3">
-        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${colors[type]}`}>
-          {type === "sent" ? "→" : "←"}
+    <div className="group flex items-center justify-between p-4 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-md hover:border-slate-200 transition-all duration-300">
+      
+      {/* Left Section */}
+      <div className="flex items-center gap-4">
+        
+        {/* Icon */}
+        <div
+          className={`relative flex items-center justify-center w-12 h-12 rounded-2xl ${
+            isReceived
+              ? "bg-green-50 text-green-600"
+              : "bg-red-50 text-red-500"
+          }`}
+        >
+          <div className="absolute inset-0 rounded-2xl bg-white/40"></div>
+
+          {isReceived ? (
+            <ArrowDownLeft className="w-5 h-5 relative z-10" />
+          ) : (
+            <ArrowUpRight className="w-5 h-5 relative z-10" />
+          )}
         </div>
+
+        {/* Details */}
         <div>
-          <h4 className="font-semibold">{title}</h4>
-          <p className="text-sm text-gray-500">{subtitle}</p>
+          <h4 className="text-sm font-semibold text-slate-800">
+            {title}
+          </h4>
+
+          <p className="text-xs text-slate-500 mt-1">
+            {subtitle}
+          </p>
         </div>
       </div>
+
+      {/* Right Section */}
       <div className="text-right">
-        <p className={`font-bold ${amount.startsWith("+") ? "text-green-600" : "text-red-600"}`}>
+        <p
+          className={`text-sm font-bold tracking-tight ${
+            isReceived ? "text-green-600" : "text-red-500"
+          }`}
+        >
           {amount}
         </p>
-        <p className="text-sm text-gray-500">{time}</p>
+
+        <p className="text-xs text-slate-400 mt-1">
+          {time}
+        </p>
       </div>
     </div>
   );
