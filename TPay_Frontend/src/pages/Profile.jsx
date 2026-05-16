@@ -81,18 +81,77 @@ export default function ProfilePage() {
             </section>
 
             {/* Quick Actions Section */}
-            <section className="px-5 mt-6">
-                <h3 className="text-gray-800 font-bold text-lg mb-4">Quick Action</h3>
-                <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
-                    <ActionButton icon={<Lock size={20} className="text-blue-600" />} label="Change MPIN" showArrow />
-                    <Divider />
-                    <ActionButton icon={<Shield size={20} className="text-green-600" />} label="Change Password" showArrow />
-                    <Divider />
-                    <ActionButton icon={<HelpCircle size={20} className="text-purple-600" />} label="Tourist Support" showArrow />
-                    <Divider />
-                    <ActionButton icon={<Phone size={20} className="text-red-600" />} label="Emergency Contact" showArrow />
-                </div>
-            </section>
+            <section className="px-5 mt-8">
+  {/* Header */}
+  <div className="flex items-center justify-between mb-5">
+    <div>
+      <h3 className="text-gray-900 font-bold text-xl tracking-tight">
+        Quick Actions
+      </h3>
+      <p className="text-sm text-gray-500 mt-1">
+        Manage your security and support options
+      </p>
+    </div>
+
+    <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center shadow-md">
+      <Shield size={18} className="text-white" />
+    </div>
+  </div>
+
+  {/* Card */}
+  <div className="bg-white/90 backdrop-blur-md rounded-3xl border border-gray-100 shadow-[0_10px_40px_rgba(0,0,0,0.06)] overflow-hidden">
+    
+    <ActionButton
+      icon={
+        <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center">
+          <Lock size={22} className="text-blue-600" />
+        </div>
+      }
+      label="Change MPIN"
+      subtitle="Update your secure payment PIN"
+      showArrow
+    />
+
+    <Divider />
+
+    <ActionButton
+      icon={
+        <div className="w-12 h-12 rounded-2xl bg-green-50 flex items-center justify-center">
+          <Shield size={22} className="text-green-600" />
+        </div>
+      }
+      label="Change Password"
+      subtitle="Keep your account protected"
+      showArrow
+    />
+
+    <Divider />
+
+    <ActionButton
+      icon={
+        <div className="w-12 h-12 rounded-2xl bg-purple-50 flex items-center justify-center">
+          <HelpCircle size={22} className="text-purple-600" />
+        </div>
+      }
+      label="Tourist Support"
+      subtitle="24/7 help & assistance"
+      showArrow
+    />
+
+    <Divider />
+
+    <ActionButton
+      icon={
+        <div className="w-12 h-12 rounded-2xl bg-red-50 flex items-center justify-center">
+          <Phone size={22} className="text-red-600" />
+        </div>
+      }
+      label="Emergency Contact"
+      subtitle="Quick access to emergency numbers"
+      showArrow
+    />
+  </div>
+</section>
 
             {/* Log Out Button */}
             <div className="px-5 mt-6 mb-8">
