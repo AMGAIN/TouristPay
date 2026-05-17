@@ -65,93 +65,144 @@ export default function ProfilePage() {
             </div>
 
             {/* Personal Info Section */}
-            <section className="px-5 mt-6">
-                <h3 className="text-gray-800 font-bold text-lg mb-4">Personal Info</h3>
-                <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
-                    <InfoItem label="Tourist Name" value="Milan Wangdu" />
-                    <Divider />
-                    <InfoItem label="Nationality" value="USA" />
-                    <Divider />
-                    <InfoItem label="Passport Number" value="PA23232232" />
-                    <Divider />
-                    <InfoItem label="Tourist Visa" value={<span className="text-green-600 font-medium">Valid: 1 month</span>} />
-                    <Divider />
-                    <InfoItem label="Email" value="milan12@gmail.com" />
-                </div>
-            </section>
-
-            {/* Quick Actions Section */}
-            <section className="px-5 mt-8">
-  {/* Header */}
-  <div className="flex items-center justify-between mb-5">
+<section className="px-5 mt-6">
+  <div className="flex items-center justify-between mb-4">
     <div>
-      <h3 className="text-gray-900 font-bold text-xl tracking-tight">
-        Quick Actions
-      </h3>
-      <p className="text-sm text-gray-500 mt-1">
-        Manage your security and support options
+      <h3 className="text-black font-bold text-xl">Personal Info</h3>
+      <p className="text-gray-500 text-sm">
+        Tourist identification details
       </p>
     </div>
 
-    <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center shadow-md">
-      <Shield size={18} className="text-white" />
+    <div className="w-10 h-10 rounded-2xl bg-blue-600 flex items-center justify-center shadow-md">
+      <span className="text-white font-bold text-sm">ID</span>
     </div>
   </div>
 
-  {/* Card */}
-  <div className="bg-white/90 backdrop-blur-md rounded-3xl border border-gray-100 shadow-[0_10px_40px_rgba(0,0,0,0.06)] overflow-hidden">
+  <div className="relative overflow-hidden rounded-3xl border border-blue-100 bg-gradient-to-br from-white via-blue-50 to-blue-100 shadow-xl">
     
-    <ActionButton
-      icon={
-        <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center">
-          <Lock size={22} className="text-blue-600" />
-        </div>
-      }
-      label="Change MPIN"
-      subtitle="Update your secure payment PIN"
-      showArrow
-    />
+    {/* Decorative Blur */}
+    <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-500/20 rounded-full blur-3xl"></div>
 
-    <Divider />
+    <div className="relative z-10 p-1">
+      
+      <InfoItem
+        label="Tourist Name"
+        value="Milan Wangdu"
+        icon="👤"
+      />
 
-    <ActionButton
-      icon={
-        <div className="w-12 h-12 rounded-2xl bg-green-50 flex items-center justify-center">
-          <Shield size={22} className="text-green-600" />
-        </div>
-      }
-      label="Change Password"
-      subtitle="Keep your account protected"
-      showArrow
-    />
+      <Divider />
 
-    <Divider />
+      <InfoItem
+        label="Nationality"
+        value="USA"
+        icon="🌍"
+      />
 
-    <ActionButton
-      icon={
-        <div className="w-12 h-12 rounded-2xl bg-purple-50 flex items-center justify-center">
-          <HelpCircle size={22} className="text-purple-600" />
-        </div>
-      }
-      label="Tourist Support"
-      subtitle="24/7 help & assistance"
-      showArrow
-    />
+      <Divider />
 
-    <Divider />
+      <InfoItem
+        label="Passport Number"
+        value="PA23232232"
+        icon="🛂"
+      />
 
-    <ActionButton
-      icon={
-        <div className="w-12 h-12 rounded-2xl bg-red-50 flex items-center justify-center">
-          <Phone size={22} className="text-red-600" />
-        </div>
-      }
-      label="Emergency Contact"
-      subtitle="Quick access to emergency numbers"
-      showArrow
-    />
+      <Divider />
+
+      <InfoItem
+        label="Tourist Visa"
+        value={
+          <span className="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-semibold">
+            Valid • 1 Month
+          </span>
+        }
+        icon="📄"
+      />
+
+      <Divider />
+
+      <InfoItem
+        label="Email"
+        value="milan12@gmail.com"
+        icon="✉️"
+      />
+    </div>
   </div>
 </section>
+
+            {/* Quick Actions Section */}
+            <section className="px-5 mt-8">
+                {/* Header */}
+                <div className="flex items-center justify-between mb-5">
+                    <div>
+                        <h3 className="text-gray-900 font-bold text-xl tracking-tight">
+                            Quick Actions
+                        </h3>
+                        <p className="text-sm text-gray-500 mt-1">
+                            Manage your security and support options
+                        </p>
+                    </div>
+
+                    <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center shadow-md">
+                        <Shield size={18} className="text-white" />
+                    </div>
+                </div>
+
+                {/* Card */}
+                <div className="bg-white/90 backdrop-blur-md rounded-3xl border border-gray-100 shadow-[0_10px_40px_rgba(0,0,0,0.06)] overflow-hidden">
+
+                    <ActionButton
+                        icon={
+                            <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center">
+                                <Lock size={22} className="text-blue-600" />
+                            </div>
+                        }
+                        label="Change MPIN"
+                        subtitle="Update your secure payment PIN"
+                        showArrow
+                    />
+
+                    <Divider />
+
+                    <ActionButton
+                        icon={
+                            <div className="w-12 h-12 rounded-2xl bg-green-50 flex items-center justify-center">
+                                <Shield size={22} className="text-green-600" />
+                            </div>
+                        }
+                        label="Change Password"
+                        subtitle="Keep your account protected"
+                        showArrow
+                    />
+
+                    <Divider />
+
+                    <ActionButton
+                        icon={
+                            <div className="w-12 h-12 rounded-2xl bg-purple-50 flex items-center justify-center">
+                                <HelpCircle size={22} className="text-purple-600" />
+                            </div>
+                        }
+                        label="Tourist Support"
+                        subtitle="24/7 help & assistance"
+                        showArrow
+                    />
+
+                    <Divider />
+
+                    <ActionButton
+                        icon={
+                            <div className="w-12 h-12 rounded-2xl bg-red-50 flex items-center justify-center">
+                                <Phone size={22} className="text-red-600" />
+                            </div>
+                        }
+                        label="Emergency Contact"
+                        subtitle="Quick access to emergency numbers"
+                        showArrow
+                    />
+                </div>
+            </section>
 
             {/* Log Out Button */}
             <div className="px-5 mt-6 mb-8">
@@ -164,16 +215,16 @@ export default function ProfilePage() {
             {/* Bottom Navigation */}
             <nav className="fixed bottom-0 w-full max-w-[400px] bg-white h-20 flex justify-around items-center border-t border-gray-200">
                 <Link to="/">
-                <NavButton icon={Home} label="Home" />
+                    <NavButton icon={Home} label="Home" />
                 </Link>
                 <Link to="/tHistory">
-                <NavButton icon={Clock} label="History" />
+                    <NavButton icon={Clock} label="History" />
                 </Link>
                 <div className="relative -top-4">
                     <Link to={"/paymentprocess"}>
-                    <button className="w-14 h-14 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow">
-                        <QrCode size={20} className="text-white" />
-                    </button>
+                        <button className="w-14 h-14 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow">
+                            <QrCode size={20} className="text-white" />
+                        </button>
                     </Link>
                 </div>
                 <NavButton icon={Gift} label="Offers" />
