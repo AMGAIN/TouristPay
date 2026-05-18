@@ -65,144 +65,152 @@ export default function ProfilePage() {
             </div>
 
             {/* Personal Info Section */}
-<section className="px-5 mt-6">
-  <div className="flex items-center justify-between mb-4">
+            <section className="px-5 mt-6">
+                <div className="flex items-center justify-between mb-4">
+                    <div>
+                        <h3 className="text-black font-bold text-xl">Personal Info</h3>
+                        <p className="text-gray-500 text-sm">
+                            Tourist identification details
+                        </p>
+                    </div>
+
+                    <div className="w-10 h-10 rounded-2xl bg-blue-600 flex items-center justify-center shadow-md">
+                        <span className="text-white font-bold text-sm">ID</span>
+                    </div>
+                </div>
+
+                <div className="relative overflow-hidden rounded-3xl border border-blue-100 bg-gradient-to-br from-white via-blue-50 to-blue-100 shadow-xl">
+
+                    {/* Decorative Blur */}
+                    <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-500/20 rounded-full blur-3xl"></div>
+
+                    <div className="relative z-10 p-1">
+
+                        <InfoItem
+                            label="Tourist Name"
+                            value="Milan Wangdu"
+                            icon="👤"
+                        />
+
+                        <Divider />
+
+                        <InfoItem
+                            label="Nationality"
+                            value="USA"
+                            icon="🌍"
+                        />
+
+                        <Divider />
+
+                        <InfoItem
+                            label="Passport Number"
+                            value="PA23232232"
+                            icon="🛂"
+                        />
+
+                        <Divider />
+
+                        <InfoItem
+                            label="Tourist Visa"
+                            value={
+                                <span className="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-semibold">
+                                    Valid • 1 Month
+                                </span>
+                            }
+                            icon="📄"
+                        />
+
+                        <Divider />
+
+                        <InfoItem
+                            label="Email"
+                            value="milan12@gmail.com"
+                            icon="✉️"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* Quick Actions Section */}
+            <section className="px-5 mt-8">
+  {/* Header */}
+  <div className="flex items-center justify-between mb-5">
     <div>
-      <h3 className="text-black font-bold text-xl">Personal Info</h3>
-      <p className="text-gray-500 text-sm">
-        Tourist identification details
+      <h3 className="text-black font-bold text-xl tracking-tight">
+        Quick Actions
+      </h3>
+
+      <p className="text-sm text-gray-500 mt-1">
+        Manage your security and support options
       </p>
     </div>
 
-    <div className="w-10 h-10 rounded-2xl bg-blue-600 flex items-center justify-center shadow-md">
-      <span className="text-white font-bold text-sm">ID</span>
+    <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-blue-600 to-black flex items-center justify-center shadow-lg shadow-blue-500/20">
+      <Shield size={18} className="text-white" />
     </div>
   </div>
 
-  <div className="relative overflow-hidden rounded-3xl border border-blue-100 bg-gradient-to-br from-white via-blue-50 to-blue-100 shadow-xl">
-    
+  {/* Premium Card */}
+  <div className="relative overflow-hidden rounded-[28px] border border-blue-100 bg-gradient-to-br from-white via-blue-50 to-blue-100 shadow-[0_15px_45px_rgba(37,99,235,0.10)]">
+
     {/* Decorative Blur */}
-    <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-500/20 rounded-full blur-3xl"></div>
+    <div className="absolute -top-16 -right-10 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl"></div>
+    <div className="absolute bottom-0 left-0 w-28 h-28 bg-black/5 rounded-full blur-2xl"></div>
 
     <div className="relative z-10 p-1">
-      
-      <InfoItem
-        label="Tourist Name"
-        value="Milan Wangdu"
-        icon="👤"
-      />
 
-      <Divider />
-
-      <InfoItem
-        label="Nationality"
-        value="USA"
-        icon="🌍"
-      />
-
-      <Divider />
-
-      <InfoItem
-        label="Passport Number"
-        value="PA23232232"
-        icon="🛂"
-      />
-
-      <Divider />
-
-      <InfoItem
-        label="Tourist Visa"
-        value={
-          <span className="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-semibold">
-            Valid • 1 Month
-          </span>
+      <ActionButton
+        icon={
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center shadow-md">
+            <Lock size={21} className="text-white" />
+          </div>
         }
-        icon="📄"
+        label="Change MPIN"
+        subtitle="Update your secure payment PIN"
+        showArrow
       />
 
       <Divider />
 
-      <InfoItem
-        label="Email"
-        value="milan12@gmail.com"
-        icon="✉️"
+      <ActionButton
+        icon={
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-700 flex items-center justify-center shadow-md">
+            <Shield size={21} className="text-white" />
+          </div>
+        }
+        label="Change Password"
+        subtitle="Keep your account protected"
+        showArrow
+      />
+
+      <Divider />
+
+      <ActionButton
+        icon={
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-slate-700 to-black flex items-center justify-center shadow-md">
+            <HelpCircle size={21} className="text-white" />
+          </div>
+        }
+        label="Tourist Support"
+        subtitle="24/7 help & assistance"
+        showArrow
+      />
+
+      <Divider />
+
+      <ActionButton
+        icon={
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center shadow-md">
+            <Phone size={21} className="text-white" />
+          </div>
+        }
+        label="Emergency Contact"
+        subtitle="Quick access to emergency numbers"
+        showArrow
       />
     </div>
   </div>
 </section>
-
-            {/* Quick Actions Section */}
-            <section className="px-5 mt-8">
-                {/* Header */}
-                <div className="flex items-center justify-between mb-5">
-                    <div>
-                        <h3 className="text-gray-900 font-bold text-xl tracking-tight">
-                            Quick Actions
-                        </h3>
-                        <p className="text-sm text-gray-500 mt-1">
-                            Manage your security and support options
-                        </p>
-                    </div>
-
-                    <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center shadow-md">
-                        <Shield size={18} className="text-white" />
-                    </div>
-                </div>
-
-                {/* Card */}
-                <div className="bg-white/90 backdrop-blur-md rounded-3xl border border-gray-100 shadow-[0_10px_40px_rgba(0,0,0,0.06)] overflow-hidden">
-
-                    <ActionButton
-                        icon={
-                            <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center">
-                                <Lock size={22} className="text-blue-600" />
-                            </div>
-                        }
-                        label="Change MPIN"
-                        subtitle="Update your secure payment PIN"
-                        showArrow
-                    />
-
-                    <Divider />
-
-                    <ActionButton
-                        icon={
-                            <div className="w-12 h-12 rounded-2xl bg-green-50 flex items-center justify-center">
-                                <Shield size={22} className="text-green-600" />
-                            </div>
-                        }
-                        label="Change Password"
-                        subtitle="Keep your account protected"
-                        showArrow
-                    />
-
-                    <Divider />
-
-                    <ActionButton
-                        icon={
-                            <div className="w-12 h-12 rounded-2xl bg-purple-50 flex items-center justify-center">
-                                <HelpCircle size={22} className="text-purple-600" />
-                            </div>
-                        }
-                        label="Tourist Support"
-                        subtitle="24/7 help & assistance"
-                        showArrow
-                    />
-
-                    <Divider />
-
-                    <ActionButton
-                        icon={
-                            <div className="w-12 h-12 rounded-2xl bg-red-50 flex items-center justify-center">
-                                <Phone size={22} className="text-red-600" />
-                            </div>
-                        }
-                        label="Emergency Contact"
-                        subtitle="Quick access to emergency numbers"
-                        showArrow
-                    />
-                </div>
-            </section>
 
             {/* Log Out Button */}
             <div className="px-5 mt-6 mb-8">
