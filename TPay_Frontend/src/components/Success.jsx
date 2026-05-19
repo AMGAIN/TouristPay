@@ -3,7 +3,7 @@ import React from 'react';
 
 const Success = ({ onBackToHome }) => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex flex-col items-center justify-center p-4">
+    <div className="border border-black min-h-screen bg-gradient-to-b from-blue-50 to-white flex flex-col items-center justify-center p-4">
       {/* Header */}
       <div className="absolute top-0 left-0 right-0 p-4">
         <div className="flex items-center justify-between mb-2">

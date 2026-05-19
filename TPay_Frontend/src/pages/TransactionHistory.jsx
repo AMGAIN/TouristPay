@@ -18,6 +18,7 @@ import {
   MoreVertical,
   ChevronDown
 } from 'lucide-react';
+import BottomNav from '../components/BottomNav';
 
 const transactions = [
   {
@@ -325,19 +326,7 @@ export default function TransactionHistory() {
 
       {/* Bottom Navigation */}
       <nav className="fixed bottom-0 w-full max-w-[400px] bg-white h-20 flex justify-around items-center border-t border-gray-200">
-        <Link to={"/"}>
-        <NavButton icon={<Home size={20} />} label="Home" />
-        </Link>
-        <NavButton icon={<Clock size={20} />} label="History" active={true} />
-        <div className="relative -top-4">
-          <button className="w-14 h-14 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow">
-            <QrCode size={20} className="text-white" />
-          </button>
-        </div>
-        <NavButton icon={<Gift size={20} />} label="Offers" />
-        <Link to="/profile">
-        <NavButton icon={<User size={20} />} label="Profile" />
-        </Link>
+        <BottomNav />
       </nav>
     </div>
   );

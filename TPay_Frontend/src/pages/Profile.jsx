@@ -17,6 +17,7 @@ import {
     QrCode
 } from 'lucide-react';
 import { Link } from "react-router-dom";
+import BottomNav from '../components/BottomNav';
 
 export default function ProfilePage() {
     return (
@@ -221,23 +222,9 @@ export default function ProfilePage() {
             </div>
 
             {/* Bottom Navigation */}
-            <nav className="fixed bottom-0 w-full max-w-[400px] bg-white h-20 flex justify-around items-center border-t border-gray-200">
-                <Link to="/">
-                    <NavButton icon={Home} label="Home" />
-                </Link>
-                <Link to="/tHistory">
-                    <NavButton icon={Clock} label="History" />
-                </Link>
-                <div className="relative -top-4">
-                    <Link to={"/paymentprocess"}>
-                        <button className="w-14 h-14 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow">
-                            <QrCode size={20} className="text-white" />
-                        </button>
-                    </Link>
-                </div>
-                <NavButton icon={Gift} label="Offers" />
-                <NavButton icon={User} label="Profile" active />
-            </nav>
+            <div className="fixed bottom-0 w-full max-w-[400px] bg-white h-20 flex justify-around items-center border-t border-gray-200">
+                <BottomNav />
+            </div>
         </div>
     );
 }

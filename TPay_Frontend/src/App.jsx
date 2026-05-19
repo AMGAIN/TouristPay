@@ -13,20 +13,22 @@ import PaymentSuccess from "./pages/PaymentSuccess";
 
 function App() {
   return (
-    <MobileLayout>
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/login" element={<LoginPage/>}/>
-        <Route path="/register" element={<RegisterPage/>}/>
-        <Route path="/tHistory" element={<TransactionHistory/>}/>
-        <Route path="/pprocess" element={<PaymentProcess/>} />
-        <Route path="/pprocess/pprocess2" element={<PaymentProcess2/>} />
-        <Route path="/pprocess/pprocess2/tpin" element={<TPin/>} />
-        <Route path="/kyc" element={<KYCForm/>}/>
-        <Route path="/payment-success" element={<PaymentSuccess />} />
-      </Routes>
-    </MobileLayout>
+    <div className="border border-red-500">
+      <MobileLayout>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/tHistory" element={<TransactionHistory />} />
+          <Route path="/pprocess" element={<PaymentProcess />} />
+          <Route path="/pprocess/pprocess2" element={<PaymentProcess2 />} />
+          <Route path="/pprocess/pprocess2/tpin" element={<TPin />} />
+          <Route path="/kyc" element={<KYCForm />} />
+          <Route path="/payment-success" element={<PaymentSuccess />} />
+        </Routes>
+      </MobileLayout>
+    </div>
   );
 }
 
