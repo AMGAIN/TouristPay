@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const CORRECT_PIN = '1234';
@@ -6,144 +6,154 @@ const CORRECT_PIN = '1234';
 const TPin = () => {
   const [pin, setPin] = useState(['', '', '', '']);
   const [error, setError] = useState('');
-  const [showSuccessScreen, setShowSuccessScreen] = useState(false);
-  const inputsRef = useRef([]);
+  const [success, setSuccess] = useState(false);
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    inputsRef.current = inputsRef.current.slice(0, 4);
-  }, []);
+  const numbers = ['1','2','3','4','5','6','7','8','9','0'];
 
-  const focusNextInput = (index) => {
-    if (index < 3) inputsRef.current[index + 1]?.focus();
-  };
-
-  const handleNumberClick = (number) => {
-    const currentIndex = pin.findIndex(d => d === '');
-    if (currentIndex === -1) return;
+  const handleNumberClick = (num) => {
+    const index = pin.findIndex(p => p === '');
+    if (index === -1) return;
 
     const newPin = [...pin];
-    newPin[currentIndex] = number;
+    newPin[index] = num;
     setPin(newPin);
-
-    if (currentIndex < 3) focusNextInput(currentIndex);
   };
 
-  const handleDeleteClick = () => {
-    const lastIndex = pin.reduce((last, d, i) => (d !== '' ? i : last), -1);
-    if (lastIndex !== -1) {
+  const handleDelete = () => {
+    const last = pin.reduce((acc, val, i) => val ? i : acc, -1);
+    if (last !== -1) {
       const newPin = [...pin];
-      newPin[lastIndex] = '';
+      newPin[last] = '';
       setPin(newPin);
-      inputsRef.current[lastIndex]?.focus();
     }
   };
 
-  const handleConfirmPayment = () => {
-    if (pin.some(d => d === '')) {
+  const handleConfirm = () => {
+    if (pin.includes('')) {
       setError('Please enter 4-digit PIN');
       return;
     }
 
-    const enteredPin = pin.join('');
-    if (enteredPin !== CORRECT_PIN) {
-      setError('Wrong PIN. Please try again.');
+    if (pin.join('') !== CORRECT_PIN) {
+      setError('Incorrect PIN');
       setPin(['', '', '', '']);
-      inputsRef.current[0]?.focus();
       return;
     }
 
-    // Payment success
     setError('');
-    setShowSuccessScreen(true);
+    setSuccess(true);
   };
 
-  const handleBackToHome = () => {
-    navigate('/');
-  };
-
-  const numbers = [1,2,3,4,5,6,7,8,9,0,'DEL'];
-
-  /* ================= PAYMENT SUCCESS SCREEN ================= */
-  if (showSuccessScreen) {
+  /* ================= SUCCESS SCREEN ================= */
+  if (success) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex flex-col items-center justify-center p-4">
-        <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mb-6">
-          <svg className="w-12 h-12 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <div className="min-h-screen bg-[#0b1220] flex flex-col items-center justify-center text-white p-6">
+
+        <div className="w-24 h-24 rounded-full bg-green-500/20 flex items-center justify-center mb-6">
+          <svg className="w-12 h-12 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
 
-        <h1 className="text-2xl font-bold text-gray-800 mb-3">Payment Successful</h1>
-        <p className="text-gray-600 text-center mb-10">
-          Your payment has been completed successfully.
+        <h1 className="text-2xl font-bold mb-2">Payment Successful</h1>
+        <p className="text-gray-400 text-center mb-8">
+          Your transaction has been completed securely.
         </p>
 
         <button
-          onClick={handleBackToHome}
-          className="w-full max-w-sm py-4 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700"
+          onClick={() => navigate('/')}
+          className="px-6 py-3 rounded-xl font-semibold
+                     bg-gradient-to-r from-blue-600 to-indigo-600
+                     shadow-lg active:scale-95 transition"
         >
-          Go back to home
+          Back to Home
         </button>
       </div>
     );
   }
 
-  /* ================= PIN ENTRY SCREEN ================= */
+  /* ================= PIN SCREEN ================= */
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white p-4 pb-28">
-      {/* pb-28 ensures scrolling content doesn't hide behind fixed button */}
+    <div className="min-h-screen bg-[#0b1220] text-white flex flex-col items-center p-6">
 
       {/* Header */}
-      <div className="mb-6 flex items-center">
-        <button onClick={() => navigate(-1)} className="mr-3 p-2 rounded-lg">
-          ←
+      <div className="w-full max-w-md mb-8">
+        <button
+          onClick={() => navigate(-1)}
+          className="text-gray-400 mb-4 hover:text-white transition"
+        >
+          ← Back
         </button>
+
         <h1 className="text-2xl font-bold">Enter Transaction PIN</h1>
+        <p className="text-gray-400 text-sm mt-1">
+          Secure payment authentication
+        </p>
       </div>
 
-      {/* PIN Inputs */}
-      <div className="bg-white rounded-2xl p-8 mb-8">
-        <h3 className="text-center font-semibold mb-6">Enter your 4-digit PIN</h3>
-        <div className="flex justify-center space-x-4 mb-4">
-          {pin.map((digit, i) => (
-            <input
+      {/* PIN BOX */}
+      <div className="w-full max-w-md bg-[#111b2e] border border-[#1f2a44] rounded-2xl p-6 mb-6">
+        <div className="flex justify-center gap-3 mb-2">
+
+          {pin.map((d, i) => (
+            <div
               key={i}
-              ref={el => inputsRef.current[i] = el}
-              type="password"
-              maxLength="1"
-              value={digit}
-              readOnly
-              className="w-16 h-16 text-center text-2xl font-bold border-2 border-gray-300 rounded-lg"
-            />
+              className="w-12 h-12 flex items-center justify-center rounded-xl
+                         bg-[#0b1220] border border-[#1f2a44] text-2xl font-bold"
+            >
+              {d ? '•' : ''}
+            </div>
           ))}
+
         </div>
-        {error && <div className="text-red-600 text-sm text-center">{error}</div>}
+
+        {error && (
+          <p className="text-red-400 text-sm text-center mt-3">{error}</p>
+        )}
       </div>
 
-      {/* NUMBER PAD */}
-      <div className="grid grid-cols-3 gap-4 mb-28">
-        {numbers.map(n => (
+      {/* KEYPAD */}
+      <div className="grid grid-cols-3 gap-3 w-full max-w-md">
+
+        {numbers.map((n) => (
           <button
             key={n}
-            onClick={() => n === 'DEL' ? handleDeleteClick() : handleNumberClick(n.toString())}
-            className={`h-20 rounded-xl text-xl font-medium ${
-              n === 'DEL' ? 'bg-red-100 text-red-600' : 'bg-gray-100 text-gray-700'
-            }`}
+            onClick={() => handleNumberClick(n)}
+            className="h-12 rounded-xl bg-[#111b2e] border border-[#1f2a44]
+                       text-lg font-medium hover:bg-[#16233a]
+                       active:scale-95 transition"
           >
             {n}
           </button>
         ))}
+
+        {/* DELETE */}
+        <button
+          onClick={handleDelete}
+          className="h-12 rounded-xl bg-red-500/10 border border-red-500/30
+                     text-red-400 font-medium active:scale-95 transition"
+        >
+          DEL
+        </button>
+
+        <div></div>
       </div>
 
-      {/* MOBILE FIXED CONFIRM BUTTON */}
-      <button
-        onClick={handleConfirmPayment}
-        className="fixed bottom-4 left-4 right-4 py-4 bg-blue-600 text-white font-semibold rounded-xl shadow-lg hover:bg-blue-700 active:scale-95 transition-transform duration-150"
-      >
-        Confirm Payment
-      </button>
+      {/* CONFIRM BUTTON */}
+      <div className="fixed bottom-6 left-6 right-6 max-w-md mx-auto">
+        <button
+          onClick={handleConfirm}
+          className="w-full py-4 rounded-2xl font-semibold text-white
+                     bg-gradient-to-r from-blue-600 to-indigo-600
+                     shadow-lg hover:shadow-blue-500/30
+                     active:scale-95 transition"
+        >
+          Confirm Payment
+        </button>
+      </div>
+
     </div>
   );
 };
