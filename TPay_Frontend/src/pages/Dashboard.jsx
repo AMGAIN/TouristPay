@@ -19,7 +19,7 @@ export default function Dashboard() {
     <div className="relative min-h-screen bg-gray-50">
 
       {/* ---------------- HEADER ---------------- */}
-      <header className="pt-10 px-6 pb-5 bg-white sticky top-0 z-20 shadow-sm">
+      <header className="pt-10 px-6 pb-5 bg-white sticky top-0 z-20 shadow-sm ">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Link to="/profile" className="relative">
@@ -49,7 +49,7 @@ export default function Dashboard() {
 
       {/* ---------------- MAIN CONTENT ---------------- */}
       {/* pb-28 = space for bottom navbar */}
-      <main className="pb-28">
+      <main className="pb-28 border ">
 
         {/* Balance */}
         <div className="px-5 mt-4">
@@ -88,57 +88,57 @@ export default function Dashboard() {
         </section>
 
         {/* Offers */}
-<section className="px-5 mt-8">
-  <SectionHeader title="OFFERS & DEALS" />
+        <section className="px-5 mt-8">
+          <SectionHeader title="OFFERS & DEALS" />
 
-  <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-6 shadow-xl border border-slate-700/40">
-    
-    {/* Background Glow */}
-    <div className="absolute -top-10 -right-10 w-32 h-32 bg-orange-500/20 rounded-full blur-3xl"></div>
-    <div className="absolute bottom-0 left-0 w-24 h-24 bg-red-500/10 rounded-full blur-2xl"></div>
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-6 shadow-xl border border-slate-700/40">
 
-    <div className="relative z-10 flex flex-col gap-5">
-      
-      {/* Badge */}
-      <div className="flex items-center gap-2 w-fit px-3 py-1 rounded-full bg-white/10 border border-white/10 backdrop-blur-sm">
-        <Tag className="w-4 h-4 text-orange-300" />
-        <span className="text-xs tracking-wide font-semibold text-orange-200">
-          LIMITED OFFER
-        </span>
-      </div>
+            {/* Background Glow */}
+            <div className="absolute -top-10 -right-10 w-32 h-32 bg-orange-500/20 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-red-500/10 rounded-full blur-2xl"></div>
 
-      {/* Content */}
-      <div>
-        <h3 className="text-2xl font-bold leading-tight text-white">
-          Get 50% Off on Your First Ride
-        </h3>
+            <div className="relative z-10 flex flex-col gap-5">
 
-        <p className="mt-2 text-sm text-slate-300 leading-relaxed">
-          Start your journey with exclusive savings. Apply the promo code below during checkout.
-        </p>
-      </div>
+              {/* Badge */}
+              <div className="flex items-center gap-2 w-fit px-3 py-1 rounded-full bg-white/10 border border-white/10 backdrop-blur-sm">
+                <Tag className="w-4 h-4 text-orange-300" />
+                <span className="text-xs tracking-wide font-semibold text-orange-200">
+                  LIMITED OFFER
+                </span>
+              </div>
 
-      {/* Footer */}
-      <div className="flex items-center justify-between gap-4">
-        
-        {/* Promo Code */}
-        <div className="px-4 py-2 rounded-xl bg-white/10 border border-white/10">
-          <p className="text-[11px] uppercase tracking-wider text-slate-400">
-            Promo Code
-          </p>
-          <p className="text-sm font-bold text-orange-300">
-            WELCOME50
-          </p>
-        </div>
+              {/* Content */}
+              <div>
+                <h3 className="text-2xl font-bold leading-tight text-white">
+                  Get 50% Off on Your First Ride
+                </h3>
 
-        {/* Button */}
-        <button className="px-5 py-2.5 rounded-xl bg-white text-slate-900 text-sm font-semibold hover:scale-105 transition-transform duration-200 shadow-md">
-          Claim Offer
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
+                <p className="mt-2 text-sm text-slate-300 leading-relaxed">
+                  Start your journey with exclusive savings. Apply the promo code below during checkout.
+                </p>
+              </div>
+
+              {/* Footer */}
+              <div className="flex items-center justify-between gap-4">
+
+                {/* Promo Code */}
+                <div className="px-4 py-2 rounded-xl bg-white/10 border border-white/10">
+                  <p className="text-[11px] uppercase tracking-wider text-slate-400">
+                    Promo Code
+                  </p>
+                  <p className="text-sm font-bold text-orange-300">
+                    WELCOME50
+                  </p>
+                </div>
+
+                {/* Button */}
+                <button className="px-5 py-2.5 rounded-xl bg-white text-slate-900 text-sm font-semibold hover:scale-105 transition-transform duration-200 shadow-md">
+                  Claim Offer
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Quick Actions */}
         <section className="px-5 mt-8">
@@ -169,15 +169,18 @@ export default function Dashboard() {
               amount="+ $120.00"
               time="Yesterday"
             />
+            
           </div>
+
         </section>
+
 
       </main>
 
-      {/* ---------------- BOTTOM NAV ---------------- */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 pb-safe">
-        <BottomNav />
-      </div>
+{/* ---------------- BOTTOM NAV ---------------- */}
+            {/* <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 pb-safe"> */}
+              <BottomNav />
+            {/* </div> */}
     </div>
   );
 }
@@ -214,17 +217,16 @@ const TransactionItem = ({ type, title, subtitle, amount, time }) => {
 
   return (
     <div className="group flex items-center justify-between p-4 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-md hover:border-slate-200 transition-all duration-300">
-      
+
       {/* Left Section */}
       <div className="flex items-center gap-4">
-        
+
         {/* Icon */}
         <div
-          className={`relative flex items-center justify-center w-12 h-12 rounded-2xl ${
-            isReceived
+          className={`relative flex items-center justify-center w-12 h-12 rounded-2xl ${isReceived
               ? "bg-green-50 text-green-600"
               : "bg-red-50 text-red-500"
-          }`}
+            }`}
         >
           <div className="absolute inset-0 rounded-2xl bg-white/40"></div>
 
@@ -250,9 +252,8 @@ const TransactionItem = ({ type, title, subtitle, amount, time }) => {
       {/* Right Section */}
       <div className="text-right">
         <p
-          className={`text-sm font-bold tracking-tight ${
-            isReceived ? "text-green-600" : "text-red-500"
-          }`}
+          className={`text-sm font-bold tracking-tight ${isReceived ? "text-green-600" : "text-red-500"
+            }`}
         >
           {amount}
         </p>
