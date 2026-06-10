@@ -188,9 +188,17 @@ export default function Dashboard() {
 /* ---------------- COMPONENTS ---------------- */
 
 const SectionHeader = ({ title }) => (
-  <div className="flex justify-between mb-3 px-1">
-    <h3 className="text-gray-800 font-bold text-lg">{title}</h3>
-    <span className="text-indigo-600 text-sm font-medium cursor-pointer">See All</span>
+  <div className="flex items-center justify-between mb-5">
+    <div>
+      <h2 className="text-xl font-bold text-black tracking-tight">
+        {title}
+      </h2>
+      <div className="w-10 h-1 rounded-full bg-black mt-1"></div>
+    </div>
+
+    <button className="text-sm font-semibold text-zinc-500 hover:text-black transition-colors duration-300">
+      View All →
+    </button>
   </div>
 );
 
@@ -210,55 +218,84 @@ const QuickAction = ({ icon, label }) => (
   </button>
 );
 
-import { ArrowUpRight, ArrowDownLeft } from "lucide-react";
+import { ArrowDownLeft, ArrowUpRight } from "lucide-react";
 
-const TransactionItem = ({ type, title, subtitle, amount, time }) => {
+const TransactionItem = ({
+  type,
+  title,
+  subtitle,
+  amount,
+  time,
+}) => {
   const isReceived = type === "received";
 
   return (
-    <div className="group flex items-center justify-between p-4 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-md hover:border-slate-200 transition-all duration-300">
-
-      {/* Left Section */}
+    <div
+      className="
+      group
+      bg-white
+      border
+      border-zinc-200
+      rounded-3xl
+      p-5
+      flex
+      justify-between
+      items-center
+      hover:shadow-xl
+      hover:-translate-y-1
+      transition-all
+      duration-300
+      "
+    >
       <div className="flex items-center gap-4">
-
-        {/* Icon */}
         <div
-          className={`relative flex items-center justify-center w-12 h-12 rounded-2xl ${isReceived
-              ? "bg-green-50 text-green-600"
-              : "bg-red-50 text-red-500"
-            }`}
-        >
-          <div className="absolute inset-0 rounded-2xl bg-white/40"></div>
+          className={`
+          w-14
+          h-14
+          rounded-2xl
+          flex
+          items-center
+          justify-center
+          transition-all
+          duration-300
 
+          ${
+            isReceived
+              ? "bg-black text-white"
+              : "bg-zinc-100 text-black"
+          }
+          `}
+        >
           {isReceived ? (
-            <ArrowDownLeft className="w-5 h-5 relative z-10" />
+            <ArrowDownLeft className="w-6 h-6" />
           ) : (
-            <ArrowUpRight className="w-5 h-5 relative z-10" />
+            <ArrowUpRight className="w-6 h-6" />
           )}
         </div>
 
-        {/* Details */}
         <div>
-          <h4 className="text-sm font-semibold text-slate-800">
+          <h3 className="font-bold text-black text-base">
             {title}
-          </h4>
+          </h3>
 
-          <p className="text-xs text-slate-500 mt-1">
+          <p className="text-sm text-zinc-500 mt-1">
             {subtitle}
           </p>
         </div>
       </div>
 
-      {/* Right Section */}
       <div className="text-right">
         <p
-          className={`text-sm font-bold tracking-tight ${isReceived ? "text-green-600" : "text-red-500"
-            }`}
+          className={`text-lg font-bold ${
+            isReceived
+              ? "text-green-600"
+              : "text-black"
+          }`}
         >
           {amount}
         </p>
 
-        <p className="text-xs text-slate-400 mt-1">
+        <p className="text-xs text-zinc-400 mt-1">
           {time}
         </p>
       </div>
